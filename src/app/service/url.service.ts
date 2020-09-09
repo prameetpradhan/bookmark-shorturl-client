@@ -16,10 +16,10 @@ export class UrlService {
 
   constructor(private http: HttpClient) { }
 
-  getShortUrl(longUrl: string): void{
+  getShortUrl({ url, expirationDateTime }): void{
     this.shortUrl.next(null);
     this.appError.next(null);
-    const body = { url: longUrl };
+    const body = { url, expirationDateTime };
     this.http.post<any>('http://localhost:8080/api/v1/create-short-url', body)
     .subscribe(res => {
       this.shortUrl.next((res as any).url);

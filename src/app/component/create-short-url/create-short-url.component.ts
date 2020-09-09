@@ -17,6 +17,7 @@ export class CreateShortUrlComponent implements OnInit {
   longUrl = new FormControl('');
   shortUrl$: Observable<string>;
   errorMessage: string;
+  expirationDateTime = new FormControl('');
 
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
@@ -40,6 +41,6 @@ export class CreateShortUrlComponent implements OnInit {
   }
 
   getShortUrl(): void{
-    this.urlService.getShortUrl(this.longUrl.value);
+    this.urlService.getShortUrl( { url: this.longUrl.value, expirationDateTime: this.expirationDateTime.value });
   }
 }
