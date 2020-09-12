@@ -1,0 +1,14 @@
+<div class="container">
+    <br/>
+    <ag-grid-angular 
+        #agGrid
+        style="height: 500px;"
+        class="ag-theme-alpine"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [pagination]="true"
+        [paginationAutoPageSize]="true"
+        [enableCellTextSelection]="true"
+        [rowHeight]="100">
+    </ag-grid-angular>
+</div>

@@ -17,18 +17,31 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { UrlService } from './service/url.service';
+import { UrlsComponent } from './component/urls/urls.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { ImageFormatterComponent } from './component/image-formatter/image-formatter.component';
+import { UrlActionComponent } from './component/url-action/url-action.component';
+import { ShortUrlFormComponent } from './component/short-url-form/short-url-form.component';
+import { ShortUrlDisplayComponent } from './component/short-url-display/short-url-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    CreateShortUrlComponent
+    CreateShortUrlComponent,
+    UrlsComponent,
+    ImageFormatterComponent,
+    UrlActionComponent,
+    ShortUrlFormComponent,
+    ShortUrlDisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AgGridModule.withComponents([ImageFormatterComponent, UrlActionComponent]),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -45,6 +58,7 @@ import { UrlService } from './service/url.service';
     MatIconModule,
     ClipboardModule,
     MatButtonModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   providers: [

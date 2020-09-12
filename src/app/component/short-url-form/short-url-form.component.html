@@ -1,0 +1,76 @@
+<div class="container">
+    <br />
+    <div class="row">
+        <div [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <mat-form-field class="container-fluid" appearance="fill">
+                <mat-label>Enter Long Url</mat-label>
+                <textarea matInput [formControl]="longUrl" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="4">
+                </textarea>
+                <mat-error *ngIf="longUrl.invalid">{{ errorMessage }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-2" *ngIf="!data">
+            <div class="d-flex justify-content-center">
+                <button mat-raised-button color="primary" (click)="getShortUrl()">
+                    <mat-icon aria-hidden="false" aria-label="refresh" inline="true">refresh</mat-icon>
+                    Convert
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngIf='data' [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <mat-form-field class="container-fluid" appearance="fill">
+                <mat-label>Short Url</mat-label>
+                <input matInput [formControl]="shortUrl" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <mat-form-field class="container-fluid" appearance="fill">
+                <mat-label>Expiration date time</mat-label>
+                <input matInput [formControl]="expirationDateTime" type="datetime-local">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <mat-form-field class="container-fluid" appearance="fill">
+                <mat-label>Short title</mat-label>
+                <input matInput type="text" [formControl]="shortTitle">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <mat-form-field class="container-fluid" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput [formControl]="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div [ngClass]="{' col-md-10': !data, ' col-md-12': data}">
+            <div class="container-fluid">
+                <label>Favicon:</label>&nbsp;&nbsp;
+                <input type='file' (change)="onSelectFile($event)" >
+            </div>
+        </div>
+    </div>
+    <img style="height: 100px; width: 100px;" [src]="faviconUrl" height="200"> <br/>
+    <div *ngIf="data">
+        <div class="float-right">
+            <button mat-raised-button color="primary" (click)="cancel()">
+                <mat-icon aria-hidden="false" aria-label="refresh" inline="true">cancel</mat-icon>
+                Cancel
+            </button>&nbsp;
+            <button mat-raised-button color="primary" (click)="update()">
+                <mat-icon aria-hidden="false" aria-label="refresh" inline="true">edit</mat-icon>
+                Edit
+            </button>
+        </div>
+    </div>
+
+</div>

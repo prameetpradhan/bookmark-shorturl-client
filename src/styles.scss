@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-alpine {
+  @include ag-theme-alpine();
+}
 
 html,
 body {
@@ -13,8 +19,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+mat-icon{
+  cursor: pointer;
+}
+
 mat-icon.top-right {
   float: right;
   margin-top: -12px;
-  cursor: pointer;
+}
+
+.cell-wrap-text {
+  text-overflow: clip;
+  overflow-wrap: break-word;
+  white-space: normal;
 }

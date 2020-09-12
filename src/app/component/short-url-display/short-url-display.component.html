@@ -1,0 +1,11 @@
+<div class="container">
+    <br />
+    <mat-form-field class="container-fluid" appearance="fill">
+        <mat-label>Short Url</mat-label>
+        <mat-icon [cdkCopyToClipboard]="shortUrl$ | async" class="top-right" *ngIf="shortUrl$ | async">file_copy
+        </mat-icon>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4">
+        {{ shortUrl$ | async }}
+    </textarea>
+    </mat-form-field>
+</div>
