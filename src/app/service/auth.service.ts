@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   isAuthorized(): boolean{
-    return this.jwtTokenService.isTokenExpired();
+    return !this.jwtTokenService.isTokenExpired();
   }
 
   logout(): void{

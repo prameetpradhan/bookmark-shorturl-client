@@ -5,15 +5,15 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div *ngIf="user$ | async as user" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li  *ngIf="user$ | async as user" class="nav-item active">
                 <a class="nav-link" href="urls">Urls</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="createShortUrl">Create Short Url<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
+            <li *ngIf="user$ | async as user" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Dropdown
@@ -30,7 +30,7 @@
             </li>
             
         </ul>
-        <div class="float-right">
+        <div *ngIf="user$ | async as user"class="float-right">
             <div>
                 <mat-icon aria-hidden="false" aria-label="person" inline="true">person</mat-icon> {{user?.name}}&nbsp;
                 <a (click)="logout()" role="button"><mat-icon aria-hidden="false" aria-label="person" inline="true" >logout</mat-icon></a>
