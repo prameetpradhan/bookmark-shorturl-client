@@ -89,8 +89,8 @@ export class ShortUrlFormComponent implements OnInit {
       this.favicon = event.target.files[0];
       reader.readAsDataURL(this.favicon); // read file as data url
 
-      reader.onload = () => { // called once readAsDataURL is completed
-        this.faviconUrl = event.target.result;
+      reader.onload = (innerEvent) => { // called once readAsDataURL is completed
+        this.faviconUrl = innerEvent.target.result;
       };
     }
   }

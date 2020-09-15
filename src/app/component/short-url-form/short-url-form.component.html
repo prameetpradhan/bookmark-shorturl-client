@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <img style="height: 100px; width: 100px;" [src]="faviconUrl" height="200"> <br/>
+    <img *ngIf="faviconUrl" [src]="faviconUrl"> <br/>
     <div *ngIf="data">
         <div class="float-right">
             <button mat-raised-button color="primary" (click)="cancel()">
