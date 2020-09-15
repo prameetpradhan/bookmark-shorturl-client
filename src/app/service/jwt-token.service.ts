@@ -48,11 +48,13 @@ export class JwtTokenService {
     if (expiryTime) {
       return ((1000 * expiryTime) - (new Date()).getTime()) < 5000;
     } else {
-      return false;
+      return true;
     }
   }
 
   remove(): void{
+    this.jwtToken = null;
+    this.decodeToken = null;
     this.localStorageService.remove(this.TOKEN_NAME);
   }
 }
